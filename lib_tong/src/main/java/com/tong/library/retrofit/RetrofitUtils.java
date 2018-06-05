@@ -1,6 +1,6 @@
-package com.tong.library.http.retrofit;
+package com.tong.library.retrofit;
 
-import com.tong.library.http.retrofit.config.HttpConfig;
+import com.tong.library.retrofit.config.HttpConfig;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
