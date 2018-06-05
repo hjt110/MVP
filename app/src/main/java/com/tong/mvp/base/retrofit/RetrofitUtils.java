@@ -12,6 +12,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  */
 
 public class RetrofitUtils {
+
     private static API api = null;
 
     //单例模式
