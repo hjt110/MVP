@@ -24,7 +24,7 @@ import android.support.annotation.FloatRange;
 import android.view.View;
 
 
-import com.yg.library.R;
+import com.ygw.library.R;
 
 import java.util.List;
 

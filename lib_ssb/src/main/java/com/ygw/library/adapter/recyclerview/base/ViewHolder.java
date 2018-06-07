@@ -23,8 +23,7 @@ import android.widget.TextView;
 /**
  * Created by sunsh on 18/5/30.
  */
-public class ViewHolder extends RecyclerView.ViewHolder
-{
+public class ViewHolder extends RecyclerView.ViewHolder {
     private SparseArray<View> mViews;
     private View mConvertView;
     private Context mContext;
@@ -44,11 +43,9 @@ public class ViewHolder extends RecyclerView.ViewHolder
         return holder;
     }
 
-    public static ViewHolder createViewHolder(Context context,
-                                              ViewGroup parent, int layoutId)
+    public static ViewHolder createViewHolder(Context context, ViewGroup parent, int layoutId)
     {
-        View itemView = LayoutInflater.from(context).inflate(layoutId, parent,
-                false);
+        View itemView = LayoutInflater.from(context).inflate(layoutId, parent, false);
         ViewHolder holder = new ViewHolder(context, itemView);
         return holder;
     }
@@ -62,8 +59,7 @@ public class ViewHolder extends RecyclerView.ViewHolder
     public <T extends View> T getView(int viewId)
     {
         View view = mViews.get(viewId);
-        if (view == null)
-        {
+        if (view == null) {
             view = mConvertView.findViewById(viewId);
             mViews.put(viewId, view);
         }
@@ -74,8 +70,6 @@ public class ViewHolder extends RecyclerView.ViewHolder
     {
         return mConvertView;
     }
-
-
 
 
     /****以下为辅助方法*****/
@@ -146,11 +140,9 @@ public class ViewHolder extends RecyclerView.ViewHolder
     @SuppressLint("NewApi")
     public ViewHolder setAlpha(int viewId, float value)
     {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-        {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             getView(viewId).setAlpha(value);
-        } else
-        {
+        } else {
             // Pre-honeycomb hack to set Alpha value
             AlphaAnimation alpha = new AlphaAnimation(value, value);
             alpha.setDuration(0);
@@ -176,8 +168,7 @@ public class ViewHolder extends RecyclerView.ViewHolder
 
     public ViewHolder setTypeface(Typeface typeface, int... viewIds)
     {
-        for (int viewId : viewIds)
-        {
+        for (int viewId : viewIds) {
             TextView view = getView(viewId);
             view.setTypeface(typeface);
             view.setPaintFlags(view.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
@@ -246,24 +237,21 @@ public class ViewHolder extends RecyclerView.ViewHolder
     /**
      * 关于事件的
      */
-    public ViewHolder setOnClickListener(int viewId,
-                                         View.OnClickListener listener)
+    public ViewHolder setOnClickListener(int viewId, View.OnClickListener listener)
     {
         View view = getView(viewId);
         view.setOnClickListener(listener);
         return this;
     }
 
-    public ViewHolder setOnTouchListener(int viewId,
-                                         View.OnTouchListener listener)
+    public ViewHolder setOnTouchListener(int viewId, View.OnTouchListener listener)
     {
         View view = getView(viewId);
         view.setOnTouchListener(listener);
         return this;
     }
 
-    public ViewHolder setOnLongClickListener(int viewId,
-                                             View.OnLongClickListener listener)
+    public ViewHolder setOnLongClickListener(int viewId, View.OnLongClickListener listener)
     {
         View view = getView(viewId);
         view.setOnLongClickListener(listener);

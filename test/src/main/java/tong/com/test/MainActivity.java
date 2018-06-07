@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.tong.library.adapter.recyclerview.CommonAdapter;
+import com.tong.library.adapter.recyclerview.MultiItemTypeAdapter;
+import com.tong.library.adapter.recyclerview.base.ItemViewDelegate;
 import com.tong.library.adapter.recyclerview.base.ViewHolder;
 import com.tong.library.base.BaseActivity;
 
@@ -29,7 +31,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-
+        initUI();
     }
 
     private void initUI() {
@@ -40,9 +42,41 @@ public class MainActivity extends BaseActivity {
 
 //        RecyclerView rlv = findViewById(R.id.rlv_main);
         rlvMain.setLayoutManager(new LinearLayoutManager(this));
-        MyAdpter myAdpter = new MyAdpter(this, R.layout.layout_rlv_main, list);
-        rlvMain.setAdapter(myAdpter);
+//        MyAdpter myAdpter = new MyAdpter(this, R.layout.layout_rlv_main, list);
+//        rlvMain.setAdapter(myAdpter);
+        MultiItemTypeAdapter multiItemTypeAdapter = new MultiItemTypeAdapter(this, list);
+        multiItemTypeAdapter.addItemViewDelegate(new ItemViewDelegate() {
+            @Override
+            public int getItemViewLayoutId() {
+                return R.layout.layout_layout_a;
+            }
 
+            @Override
+            public boolean isForViewType(Object item, int position) {
+                return Integer.parseInt(item.toString().substring(4,5))%2==0;
+            }
+
+            @Override
+            public void convert(ViewHolder holder, Object o, int position) {
+
+            }
+        }).addItemViewDelegate(new ItemViewDelegate() {
+            @Override
+            public int getItemViewLayoutId() {
+                return R.layout.layout_layout_b;
+            }
+
+            @Override
+            public boolean isForViewType(Object item, int position) {
+                return Integer.parseInt(item.toString().substring(4,5))%2!=0;
+            }
+
+            @Override
+            public void convert(ViewHolder holder, Object o, int position) {
+
+            }
+        });
+        rlvMain.setAdapter(multiItemTypeAdapter);
 
     }
 

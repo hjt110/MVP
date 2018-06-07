@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.ygw.library.R;
 import com.ygw.library.adapter.recyclerview.base.ItemViewDelegate;
 import com.ygw.library.adapter.recyclerview.base.ItemViewDelegateManager;
 import com.ygw.library.adapter.recyclerview.base.ViewHolder;
@@ -18,12 +19,12 @@ import java.util.List;
  * Created by sunsh on 18/5/30.
  */
 public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
-
     protected Context mContext;
     protected List<T> mDatas;
 
     protected ItemViewDelegateManager mItemViewDelegateManager;
     protected OnItemClickListener mOnItemClickListener;
+
 
     public MultiItemTypeAdapter(Context context, List<T> datas) {
         mContext = context;

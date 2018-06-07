@@ -5,7 +5,8 @@ import android.support.v4.util.SparseArrayCompat;
 /**
  * Created by sunsh on 18/5/30.
  */
-public class ItemViewDelegateManager<T> {
+public class ItemViewDelegateManager<T>
+{
     SparseArrayCompat<ItemViewDelegate<T>> delegates = new SparseArrayCompat();
 
     public int getItemViewDelegateCount()
@@ -16,7 +17,8 @@ public class ItemViewDelegateManager<T> {
     public ItemViewDelegateManager<T> addDelegate(ItemViewDelegate<T> delegate)
     {
         int viewType = delegates.size();
-        if (delegate != null) {
+        if (delegate != null)
+        {
             delegates.put(viewType, delegate);
             viewType++;
         }
@@ -25,9 +27,13 @@ public class ItemViewDelegateManager<T> {
 
     public ItemViewDelegateManager<T> addDelegate(int viewType, ItemViewDelegate<T> delegate)
     {
-        if (delegates.get(viewType) != null) {
-            throw new IllegalArgumentException("An ItemViewDelegate is already registered for the viewType = " + viewType + ". Already registered ItemViewDelegate is " + delegates
-                    .get(viewType));
+        if (delegates.get(viewType) != null)
+        {
+            throw new IllegalArgumentException(
+                    "An ItemViewDelegate is already registered for the viewType = "
+                            + viewType
+                            + ". Already registered ItemViewDelegate is "
+                            + delegates.get(viewType));
         }
         delegates.put(viewType, delegate);
         return this;
@@ -35,12 +41,14 @@ public class ItemViewDelegateManager<T> {
 
     public ItemViewDelegateManager<T> removeDelegate(ItemViewDelegate<T> delegate)
     {
-        if (delegate == null) {
+        if (delegate == null)
+        {
             throw new NullPointerException("ItemViewDelegate is null");
         }
         int indexToRemove = delegates.indexOfValue(delegate);
 
-        if (indexToRemove >= 0) {
+        if (indexToRemove >= 0)
+        {
             delegates.removeAt(indexToRemove);
         }
         return this;
@@ -50,7 +58,8 @@ public class ItemViewDelegateManager<T> {
     {
         int indexToRemove = delegates.indexOfKey(itemType);
 
-        if (indexToRemove >= 0) {
+        if (indexToRemove >= 0)
+        {
             delegates.removeAt(indexToRemove);
         }
         return this;
@@ -59,27 +68,33 @@ public class ItemViewDelegateManager<T> {
     public int getItemViewType(T item, int position)
     {
         int delegatesCount = delegates.size();
-        for (int i = delegatesCount - 1; i >= 0; i--) {
+        for (int i = delegatesCount - 1; i >= 0; i--)
+        {
             ItemViewDelegate<T> delegate = delegates.valueAt(i);
-            if (delegate.isForViewType(item, position)) {
+            if (delegate.isForViewType( item, position))
+            {
                 return delegates.keyAt(i);
             }
         }
-        throw new IllegalArgumentException("No ItemViewDelegate added that matches position=" + position + " in data source");
+        throw new IllegalArgumentException(
+                "No ItemViewDelegate added that matches position=" + position + " in data source");
     }
 
     public void convert(ViewHolder holder, T item, int position)
     {
         int delegatesCount = delegates.size();
-        for (int i = 0; i < delegatesCount; i++) {
+        for (int i = 0; i < delegatesCount; i++)
+        {
             ItemViewDelegate<T> delegate = delegates.valueAt(i);
 
-            if (delegate.isForViewType(item, position)) {
+            if (delegate.isForViewType( item, position))
+            {
                 delegate.convert(holder, item, position);
                 return;
             }
         }
-        throw new IllegalArgumentException("No ItemViewDelegateManager added that matches position=" + position + " in data source");
+        throw new IllegalArgumentException(
+                "No ItemViewDelegateManager added that matches position=" + position + " in data source");
     }
 
 

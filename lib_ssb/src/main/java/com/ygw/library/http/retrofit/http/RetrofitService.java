@@ -28,40 +28,28 @@ import retrofit2.http.Url;
 public interface RetrofitService {
 
     @GET("{url}")
-    Observable<HttpResponse> executeGet(
-            @Path("url") String url,
-            @QueryMap Map<String, String> maps
-    );
+    Observable<HttpResponse> executeGet(@Path("url") String url, @QueryMap Map<String, String> maps);
 
 
     @POST("{url}")
-    Observable<HttpResponse> executePost(
-            @Path("url") String url,
-            //  @Header("") String authorization,
-            @QueryMap Map<String, String> maps);
+    Observable<HttpResponse> executePost(@Path("url") String url,
+                                         //  @Header("") String authorization,
+                                         @QueryMap Map<String, String> maps);
 
     @POST("{url}")
-    Observable<HttpResponse> json(
-            @Path("url") String url,
-            @Body RequestBody jsonStr);
+    Observable<HttpResponse> json(@Path("url") String url, @Body RequestBody jsonStr);
 
     @Multipart
     @POST("{url}")
-    Observable<HttpResponse> upLoadFile(
-            @Path("url") String url,
-            @Part("image\"; filename=\"image.jpg") RequestBody requestBody);
+    Observable<HttpResponse> upLoadFile(@Path("url") String url, @Part("image\"; filename=\"image.jpg") RequestBody requestBody);
 
     @POST("{url}")
-    Call<HttpResponse> uploadFiles(
-            @Path("url") String url,
-            @Path("headers") Map<String, String> headers,
-            @Part("filename") String description,
-            @PartMap() Map<String, RequestBody> maps);
+    Call<HttpResponse> uploadFiles(@Path("url") String url, @Path("headers") Map<String, String> headers, @Part("filename") String description, @PartMap() Map<String, RequestBody> maps);
 
     @Streaming
     @GET
     Observable<HttpResponse> downloadFile(@Url String fileUrl);
 
     @GET("{url}")
-    Observable<HttpResponse> get(@Path("url") String url,@Body RequestBody requestBody);
+    Observable<HttpResponse> get(@Path("url") String url, @Body RequestBody requestBody);
 }

@@ -13,8 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-
-import com.yg.library.R;
+import com.ygw.library.R;
 
 import java.lang.ref.WeakReference;
 
