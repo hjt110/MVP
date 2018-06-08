@@ -31,9 +31,23 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        initUI();
+//        initUI();
+        MultiItem();
     }
 
+    private void MultiItem() {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(i + "test");
+        }
+        rlvMain.setLayoutManager(new LinearLayoutManager(this));
+        MultiAdpter multiAdpter = new MultiAdpter(this, list);
+        rlvMain.setAdapter(multiAdpter);
+    }
+
+    /**
+     * MultiItemAdpter 模型
+     */
     private void initUI() {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -53,7 +67,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public boolean isForViewType(Object item, int position) {
-                return Integer.parseInt(item.toString().substring(4,5))%2==0;
+                return Integer.parseInt(item.toString().substring(4, 5)) % 2 == 0;
             }
 
             @Override
@@ -68,7 +82,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public boolean isForViewType(Object item, int position) {
-                return Integer.parseInt(item.toString().substring(4,5))%2!=0;
+                return Integer.parseInt(item.toString().substring(4, 5)) % 2 != 0;
             }
 
             @Override
