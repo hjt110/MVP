@@ -9,7 +9,7 @@ public class MyEvaluation implements TypeEvaluator<Integer> {
 
         Log.e("fraction",fraction+"");
         Log.e("startValue",startValue+"");
-        Log.e("endValue",endValue+"");
+        Log.e("endValue",endValue+" ");
         Log.e("result",(int) (startValue+ fraction * (endValue - startValue))+"");
 
         return (int) (startValue+ fraction * (endValue - startValue));
