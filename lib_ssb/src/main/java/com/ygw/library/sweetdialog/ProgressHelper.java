@@ -2,7 +2,7 @@ package com.ygw.library.sweetdialog;
 
 import android.content.Context;
 
-import com.yg.library.R;
+import com.ygw.library.R;
 
 
 public class ProgressHelper {

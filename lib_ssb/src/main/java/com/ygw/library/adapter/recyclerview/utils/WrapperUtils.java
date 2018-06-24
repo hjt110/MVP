@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 /**
  * Created by sunsh on 18/5/30.
  */
-public class WrapperUtils {
-    public interface SpanSizeCallback {
+public class WrapperUtils
+{
+    public interface SpanSizeCallback
+    {
         int getSpanSize(GridLayoutManager layoutManager, GridLayoutManager.SpanSizeLookup oldLookup, int position);
     }
 
@@ -18,11 +20,13 @@ public class WrapperUtils {
         innerAdapter.onAttachedToRecyclerView(recyclerView);
 
         RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
-        if (layoutManager instanceof GridLayoutManager) {
+        if (layoutManager instanceof GridLayoutManager)
+        {
             final GridLayoutManager gridLayoutManager = (GridLayoutManager) layoutManager;
             final GridLayoutManager.SpanSizeLookup spanSizeLookup = gridLayoutManager.getSpanSizeLookup();
 
-            gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup()
+            {
                 @Override
                 public int getSpanSize(int position)
                 {
@@ -37,7 +41,9 @@ public class WrapperUtils {
     {
         ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
 
-        if (lp != null && lp instanceof StaggeredGridLayoutManager.LayoutParams) {
+        if (lp != null
+                && lp instanceof StaggeredGridLayoutManager.LayoutParams)
+        {
 
             StaggeredGridLayoutManager.LayoutParams p = (StaggeredGridLayoutManager.LayoutParams) lp;
 

@@ -17,8 +17,7 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.yg.library.R;
-
+import com.ygw.library.R;
 
 /**
  * A Material style progress wheel, compatible up to 2.2.
@@ -83,7 +82,7 @@ public class ProgressWheel extends View {
   public ProgressWheel(Context context, AttributeSet attrs) {
     super(context, attrs);
 
-    parseAttributes(context.obtainStyledAttributes(attrs, R.styleable.ProgressWheel));
+    parseAttributes(context.obtainStyledAttributes(attrs,R.styleable.ProgressWheel));
 
     setAnimationEnabled();
   }
