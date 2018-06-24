@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyTheme">
+        <item name="android:windowIsTranslucent">true</item>//界面是否为透明
+        <item name="android:windowBackground">@color/transparent</item>//界面背景
+        <item name="android:colorBackgroundCacheHint">@color/transparent</item>//颜色背景缓存提示
+        <item name="android:windowAnimationStyle">@style/Anim.Main</item>//界面切换动画
+    </style>
+
+    <style name="Anim.Main" parent="@android:style/Animation">
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <!-- my loading dialog -->
+    <style name="MyDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>//是否浮动
+        <item name="android:windowIsTranslucent">true</item>//是否半透明
+        <item name="android:windowContentOverlay">@null</item>//设置窗体内容背景
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>//是否允许对话框的背景变暗
+    </style>
+
+    <!-- popup window 显示消失动画-->
+    <style name="PopWindowAnimStyle">
+        <item name="android:windowShowAnimation">@anim/dialog_enter</item>
+        <!-- 指定显示的动画xml  -->
+        <item name="android:windowHideAnimation">@anim/dialog_exit</item>
+        <!-- 指定消失的动画xml  -->
+    </style>
+
+</resources>

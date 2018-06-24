@@ -1,26 +1,21 @@
 package tong.com.test;
 
-import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
-import com.tong.library.adapter.recyclerview.CommonAdapter;
-import com.tong.library.adapter.recyclerview.base.ViewHolder;
-import com.tong.library.base.BaseActivity;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends Base2Activity {
 
 
-    @BindView(R.id.rlv_main)
-    RecyclerView rlvMain;
+    @BindView(R.id.textView)
+    TextView textView;
 
     @Override
     protected int getLayoutResID() {
@@ -30,20 +25,16 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
 
+        textView.setBackgroundColor(Color.argb(0xff,0x00,0x00,0x00));
     }
 
     private void initUI() {
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            list.add("test" + i);
-        }
-
-//        RecyclerView rlv = findViewById(R.id.rlv_main);
-        rlvMain.setLayoutManager(new LinearLayoutManager(this));
-        MyAdpter myAdpter = new MyAdpter(this, R.layout.layout_rlv_main, list);
-        rlvMain.setAdapter(myAdpter);
 
 
+    }
+    @OnClick(R.id.textView)
+    public void ddd(View view){
+        Toast.makeText(getActivity(),"jjkkjk",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -53,17 +44,5 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-
-    class MyAdpter extends CommonAdapter<String> {
-
-        public MyAdpter(Context context, int layoutId, List<String> datas) {
-            super(context, layoutId, datas);
-        }
-
-        @Override
-        protected void convert(ViewHolder holder, String s, int position) {
-            holder.setText(R.id.tv_rlv, s);
-        }
-    }
 
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.tong.library.mvp.BaseView;
 
@@ -22,7 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         setContentView(getLayoutResID());
         mUnbinder = ButterKnife.bind(this);
         activity = this;
-
+        Log.e("base","oncreat");
         init(savedInstanceState);
     }
 
@@ -37,6 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.e("base","ondestroy");
         mUnbinder.unbind();
     }
 

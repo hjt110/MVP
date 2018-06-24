@@ -1,1 +1,1 @@
-include ':app', ':lib_tong', ':test',':lib_ssb'
+include ':app', ':lib_tong', ':test',':lib_ssb',':lib_tong1804', ':test2'

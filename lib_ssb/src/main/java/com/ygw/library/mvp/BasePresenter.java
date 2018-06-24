@@ -16,7 +16,6 @@ public abstract class BasePresenter<M, T> {
         this.mView = v;
         this.mModel = m;
         this.onStart();
-
     }
 
     public abstract void onStart();
