@@ -8,7 +8,7 @@ public class MyEvaluation implements TypeEvaluator<Integer> {
     public Integer evaluate(float fraction, Integer startValue, Integer endValue) {
 
         Log.e("fraction",fraction+"");
-        Log.e("startValue",startValue+"");
+        Log.e("startValue",startValue+"  ");
         Log.e("endValue",endValue+" ");
         Log.e("result",(int) (startValue+ fraction * (endValue - startValue))+"");
 
